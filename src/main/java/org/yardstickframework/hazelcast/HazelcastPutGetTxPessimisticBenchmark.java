@@ -55,7 +55,7 @@ public class HazelcastPutGetTxPessimisticBenchmark extends HazelcastAbstractBenc
             tCtx.commitTransaction();
         }
         catch (Exception e) {
-            println(cfg, "Yardstick transaction will be rollback.");
+            println(cfg, "Transaction will be rollback.");
 
             e.printStackTrace(cfg.error());
 
