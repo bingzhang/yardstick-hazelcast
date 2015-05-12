@@ -41,6 +41,8 @@ public class HazelcastPutGetBenchmark extends HazelcastAbstractBenchmark {
         }
         catch (Exception e){
             error("Failed operation.", e);
+
+            test(ctx);
         }
 
         return true;
