@@ -63,6 +63,7 @@ public class HazelcastNode implements BenchmarkServer {
             hz = HazelcastClient.newHazelcastClient(clientCfg);
 
             println(cfg, "Hazelcast client started.");
+            println(cfg, "Hazelcast client configuration: [" + cfg + "].");
         }
         else {
             for (Map.Entry<String, String> env : System.getenv().entrySet())
@@ -76,6 +77,7 @@ public class HazelcastNode implements BenchmarkServer {
             hz = Hazelcast.newHazelcastInstance(hzCfg);
 
             println(cfg, "Hazelcast member started.");
+            println(cfg, "Hazelcast benchmark configuration: [" + cfg + "].");
         }
 
         assert hz != null;
