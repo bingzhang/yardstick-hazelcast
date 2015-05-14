@@ -37,7 +37,6 @@
             <aws enabled="true">
                 <access-key>${AWS_ACCESS_KEY}</access-key>
                 <secret-key>${AWS_SECRET_KEY}</secret-key>
-                <region>us-west-1</region>
                 <host-header>ec2.amazonaws.com</host-header>
             </aws>
         </join>
