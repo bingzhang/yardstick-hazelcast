@@ -68,6 +68,8 @@ public class HazelcastPutGetTxPessimisticBenchmark extends HazelcastAbstractBenc
             }
             catch (Exception e1) {
                 println(cfg, "Transaction will be rollback.");
+
+                e1.printStackTrace(cfg.error());
             }
         }
 
