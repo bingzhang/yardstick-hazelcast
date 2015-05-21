@@ -28,9 +28,6 @@
     <network>
         <cluster-members>
             <address>172.31.28.26:57500</address>
-            <address>172.31.8.236:57500</address>
-            <address>172.31.8.237:57500</address>
-            <address>172.31.8.238:57500</address>
         </cluster-members>
     </network>
 </hazelcast-client>
