@@ -18,6 +18,7 @@ import com.hazelcast.core.*;
 import com.hazelcast.transaction.*;
 
 import java.util.*;
+import java.util.concurrent.*;
 
 import static com.hazelcast.transaction.TransactionOptions.TransactionType.*;
 import static org.yardstickframework.BenchmarkUtils.*;
@@ -37,6 +38,8 @@ public class HazelcastPutGetTxOptimisticBenchmark extends HazelcastAbstractBench
 
         // Repeatable read isolation level is always used.
         TransactionOptions txOpts = new TransactionOptions().setTransactionType(TWO_PHASE);
+
+        txOpts.setTimeout(200, TimeUnit.MILLISECONDS);
 
         TransactionContext tCtx = hazelcast().newTransactionContext(txOpts);
 

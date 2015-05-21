@@ -22,7 +22,8 @@
     <properties>
         <property name="hazelcast.local.localAddress">${LOCAL_IP}</property>
         <property name="hazelcast.operation.call.timeout.millis">500</property>
-        <property name="hazelcast.client.heartbeat.interval">200</property>
+        <property name="hazelcast.client.heartbeat.interval">100</property>
+        <property name="hazelcast.client.max.failed.heartbeat.count">1</property>
     </properties>
 
     <network>
