@@ -33,18 +33,22 @@ public class HazelcastPutGetTxPessimisticBenchmark extends HazelcastAbstractBenc
 
     /** {@inheritDoc} */
     @Override public boolean test(Map<Object, Object> ctx) throws Exception {
-        int key = nextRandom(0, args.range() / 2);
-
-        // Repeatable read isolation level is always used.
-        TransactionOptions txOpts = new TransactionOptions().setTransactionType(TWO_PHASE);
-
-        TransactionContext tCtx = hazelcast().newTransactionContext(txOpts);
-
-        tCtx.beginTransaction();
-
-        TransactionalMap<Object, Object> txMap = tCtx.getMap("map");
+        TransactionContext tCtx = null;
 
         try {
+
+            int key = nextRandom(0, args.range() / 2);
+
+            // Repeatable read isolation level is always used.
+            TransactionOptions txOpts = new TransactionOptions().setTransactionType(TWO_PHASE);
+
+            tCtx = hazelcast().newTransactionContext(txOpts);
+
+            tCtx.beginTransaction();
+
+            TransactionalMap<Object, Object> txMap = tCtx.getMap("map");
+
+
             Object val = txMap.getForUpdate(key);
 
             if (val != null)
@@ -59,7 +63,12 @@ public class HazelcastPutGetTxPessimisticBenchmark extends HazelcastAbstractBenc
 
             e.printStackTrace(cfg.error());
 
-            tCtx.rollbackTransaction();
+            try {
+                tCtx.rollbackTransaction();
+            }
+            catch (Exception e1) {
+                println(cfg, "Transaction will be rollback.");
+            }
         }
 
         return true;
