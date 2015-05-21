@@ -36,7 +36,6 @@ public class HazelcastPutGetTxPessimisticBenchmark extends HazelcastAbstractBenc
         TransactionContext tCtx = null;
 
         try {
-
             int key = nextRandom(0, args.range() / 2);
 
             // Repeatable read isolation level is always used.

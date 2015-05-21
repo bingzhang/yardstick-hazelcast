@@ -34,20 +34,22 @@ public class HazelcastPutGetTxOptimisticBenchmark extends HazelcastAbstractBench
 
     /** {@inheritDoc} */
     @Override public boolean test(Map<Object, Object> ctx) throws Exception {
-        int key = nextRandom(0, args.range() / 2);
-
-        // Repeatable read isolation level is always used.
-        TransactionOptions txOpts = new TransactionOptions().setTransactionType(TWO_PHASE);
-
-        txOpts.setTimeout(200, TimeUnit.MILLISECONDS);
-
-        TransactionContext tCtx = hazelcast().newTransactionContext(txOpts);
-
-        tCtx.beginTransaction();
-
-        TransactionalMap<Object, Object> txMap = tCtx.getMap("map");
+        TransactionContext tCtx = null;
 
         try {
+            int key = nextRandom(0, args.range() / 2);
+
+            // Repeatable read isolation level is always used.
+            TransactionOptions txOpts = new TransactionOptions().setTransactionType(TWO_PHASE);
+
+            txOpts.setTimeout(200, TimeUnit.MILLISECONDS);
+
+            tCtx = hazelcast().newTransactionContext(txOpts);
+
+            tCtx.beginTransaction();
+
+            TransactionalMap<Object, Object> txMap = tCtx.getMap("map");
+
             Object val = txMap.get(key);
 
             if (val != null)
@@ -62,7 +64,14 @@ public class HazelcastPutGetTxOptimisticBenchmark extends HazelcastAbstractBench
 
             e.printStackTrace(cfg.error());
 
-            tCtx.rollbackTransaction();
+            try {
+                tCtx.rollbackTransaction();
+            }
+            catch (Exception e1){
+                println(cfg, "Transaction will be rollback.");
+
+                e.printStackTrace(cfg.error());
+            }
         }
 
         return true;
