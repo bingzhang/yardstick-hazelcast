@@ -16,12 +16,17 @@
     Hazelcast client configuration file to startup hazelcast instance.
 -->
 <hazelcast-client xsi:schemaLocation="http://www.hazelcast.com/schema/client-config
-                  http://www.hazelcast.com/schema/client-config/hazelcast-client-config-3.2.xsd"
+                  http://www.hazelcast.com/schema/client-config/hazelcast-client-config-3.4.xsd"
                   xmlns="http://www.hazelcast.com/schema/client-config"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <properties>
+        <property name="hazelcast.local.localAddress">${LOCAL_IP}</property>
+        <property name="hazelcast.operation.call.timeout.millis">500</property>
+    </properties>
+
     <network>
         <cluster-members>
-            <address>172.31.8.235:57500</address>
+            <address>172.31.28.26:57500</address>
             <address>172.31.8.236:57500</address>
             <address>172.31.8.237:57500</address>
             <address>172.31.8.238:57500</address>
