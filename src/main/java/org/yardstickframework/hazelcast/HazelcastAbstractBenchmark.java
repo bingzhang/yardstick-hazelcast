@@ -112,7 +112,7 @@ public abstract class HazelcastAbstractBenchmark extends BenchmarkDriverAdapter 
      * @throws Exception If failed.
      */
     private void waitForNodes() throws Exception {
-        final CountDownLatch nodesStartedLatch = new CountDownLatch(1);
+        /*final CountDownLatch nodesStartedLatch = new CountDownLatch(1);
 
         hazelcast().getCluster().addMembershipListener(new MembershipListener() {
             @Override public void memberAdded(MembershipEvent evt) {
@@ -133,7 +133,7 @@ public abstract class HazelcastAbstractBenchmark extends BenchmarkDriverAdapter 
             println(cfg, "Waiting for " + (args.nodes() - 1) + " nodes to start...");
 
             nodesStartedLatch.await();
-        }
+        }*/
     }
 
     /**
