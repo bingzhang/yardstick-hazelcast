@@ -27,11 +27,11 @@
     </properties>
 
     <network>
-        <aws enabled="true">
-            <access-key>${AWS_ACCESS_KEY}</access-key>
-            <secret-key>${AWS_SECRET_KEY}</secret-key>
-            <region>us-west-1</region>
-            <host-header>ec2.amazonaws.com</host-header>
-        </aws>
+        <cluster-members>
+            <address>172.31.7.12:57500</address>
+            <address>172.31.7.13:57500</address>
+            <address>172.31.7.14:57500</address>
+            <address>172.31.7.15:57500</address>
+        </cluster-members>
     </network>
 </hazelcast-client>
