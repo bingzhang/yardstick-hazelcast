@@ -28,7 +28,7 @@
 
     <network>
         <cluster-members>
-            <address>172.31.20.77:57500</address>
+            <address>172.31.15.240:57500</address>
         </cluster-members>
     </network>
 </hazelcast-client>
