@@ -2,7 +2,7 @@
 Yardstick Hazelcast is a set of <a href="http://hazelcast.org" target="_blank">Hazelcast Data Grid</a> benchmarks written on top of Yardstick framework.
 
 ## Yardstick Framework
-Visit <a href="https://github.com/gridgain/yardstick" target="_blank">Yardstick Repository</a> for detailed information on how to run Yardstick benchmarks and how to generate graphs.
+Visit <a href="https://github.com/yardstick-benchmarks/yardstick" target="_blank">Yardstick Repository</a> for detailed information on how to run Yardstick benchmarks and how to generate graphs.
 
 The documentation below describes configuration parameters in addition to standard Yardstick parameters.
 
@@ -32,7 +32,7 @@ Before running Hazelcast benchmarks, run `mvn package` command. This command wil
 ### Properties And Command Line Arguments
 > Note that this section only describes configuration parameters specific to Hazelcast benchmarks, and not for Yardstick framework. To run Hazelcast benchmarks and generate graphs, you will need to run them using Yardstick framework scripts in `bin` folder.
 
-> Refer to [Yardstick Documentation](https://github.com/gridgain/yardstick) for common Yardstick properties and command line arguments for running Yardstick scripts.
+> Refer to [Yardstick Documentation](https://github.com/yardstick-benchmarks/yardstick) for common Yardstick properties and command line arguments for running Yardstick scripts.
 
 The following Hazelcast benchmark properties can be defined in the benchmark configuration:
 
@@ -56,7 +56,7 @@ CONFIGS="-b 1 -sb -dn HazelcastPutBenchmark -sn HazelcastNode"
 ```
 
 ## Issues
-Use GitHub [issues](https://github.com/gridgain/yardstick-hazelcast/issues) to file bugs.
+Use GitHub [issues](https://github.com/yardstick-benchmarks/yardstick) to file bugs.
 
 ## License
 Yardstick Hazelcast is available under [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) Open Source license.
