@@ -23,7 +23,6 @@
     <name>Yardstick Hazelcast</name>
     <version>0.7.0</version>
 
-    <url>https://github.com/gridgain/yardstick-hazelcast</url>
     <description>The set of Hazelcast benchmarks written by using Yardstick framework.</description>
 
     <licenses>
@@ -32,19 +31,6 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-
-    <scm>
-        <url>https://github.com/gridgain/yardstick-hazelcast</url>
-        <connection>scm:git:git://github.com/gridgain/yardstick-hazelcast.git</connection>
-    </scm>
-
-    <developers>
-        <developer>
-            <id>gridgain</id>
-            <name>GridGain</name>
-            <email>mvncentral@gridgain.com</email>
-        </developer>
-    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
